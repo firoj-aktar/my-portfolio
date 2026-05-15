@@ -79,7 +79,6 @@ function App() {
       <Services services={services} />
       <Experience experiences={experiences} />
       <Skills skills={skills} />
-      <Certifications certifications={certifications} />
       <Projects
         activeFilter={activeProjectFilter}
         filters={projectFilters}
@@ -87,6 +86,7 @@ function App() {
         onFilterChange={setActiveProjectFilter}
       />
       <Education education={education} />
+      <Certifications certifications={certifications} />
       <Gallery gallery={gallery} onImageOpen={setActiveGalleryImage} />
       <Contact copied={copied} profile={profile} onCopyEmail={copyEmail} />
       <BackToTop />

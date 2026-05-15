@@ -6,6 +6,7 @@ function Hero({ profile, stats }) {
   const [styleIndex, setStyleIndex] = useState(0)
   const activeImage = profile.heroImages[imageIndex]
   const activeStyle = profile.nameStyles[styleIndex]
+  const activeBgImage = profile.heroBgImages[0]
 
   useEffect(() => {
     const imageTimer = window.setInterval(() => {
@@ -24,7 +25,17 @@ function Hero({ profile, stats }) {
 
   return (
     <section id="home" className="hero-section">
-      <div className="hero-bg" />
+      <div
+        className="hero-bg"
+        style={{
+          backgroundImage: `linear-gradient(rgba(10, 18, 35, 0.58), rgba(10, 18, 35, 0.82)), url('${activeBgImage}')`,
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "scroll",
+        }}
+      />
+      <div className="hero-gradient" />
       <div className="hero-content">
         <div className="profile-image">
           <img src={activeImage} alt={profile.name} />
