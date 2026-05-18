@@ -827,6 +827,94 @@ progress::-moz-progress-bar {
   color: #b6c4d9;
 }
 
+/* Dark Mode Card Variations */
+.dark-mode .services-grid article:nth-child(2),
+.dark-mode .timeline article:nth-child(2),
+.dark-mode .skills-grid article:nth-child(2n),
+.dark-mode .project-grid article:nth-child(2n),
+.dark-mode .education-grid article:nth-child(2),
+.dark-mode .certification-grid article:nth-child(2n) {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(31, 122, 224, 0.22),
+      transparent 32%
+    ),
+    #0f1620;
+}
+
+.dark-mode .services-grid article:nth-child(3),
+.dark-mode .skills-grid article:nth-child(3n),
+.dark-mode .project-grid article:nth-child(3n),
+.dark-mode .education-grid article:nth-child(3) {
+  background:
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(245, 158, 11, 0.22),
+      transparent 32%
+    ),
+    #151d2c;
+}
+
+/* Dark Mode Hover States */
+.dark-mode .services-grid article:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  border-color: #0cba87;
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(12, 186, 135, 0.24),
+      transparent 34%
+    ),
+    #0f1620;
+  box-shadow:
+    0 28px 70px rgba(12, 186, 135, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .timeline article:hover,
+.dark-mode .project-grid article:hover,
+.dark-mode .skills-grid article:hover,
+.dark-mode .certification-grid article:hover {
+  transform: translateY(-5px);
+  border-color: #0cba87;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(12, 186, 135, 0.2), transparent 34%),
+    #0f1620;
+  box-shadow:
+    0 28px 70px rgba(31, 122, 224, 0.2),
+    0 0 0 1px rgba(12, 186, 135, 0.12);
+}
+
+.dark-mode .education-grid article img {
+  background: #0a0e14;
+}
+
+.dark-mode .filter-row button {
+  background: rgba(12, 186, 135, 0.15);
+  color: #7cfbd0;
+  border: 1px solid rgba(12, 186, 135, 0.25);
+}
+
+.dark-mode .filter-row button.active {
+  background: #0cba87;
+  color: #06131c;
+  border-color: #0cba87;
+}
+
+.dark-mode progress {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode progress::-webkit-progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0cba87, #1f7ae0);
+}
+
 .project-grid span {
   color: #5b6576;
   line-height: 1.7;

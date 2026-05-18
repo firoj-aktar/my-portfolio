@@ -51,15 +51,17 @@ function App() {
 
   useEffect(() => {
     const updateActiveSection = () => {
-      const current = window.location.hash.replace("#", "") || "home"
+      const current = window.location.pathname.slice(1) || "home"
       setActiveSection(current)
+      const el = document.getElementById(current)
+      if (el) el.scrollIntoView({ behavior: "smooth" })
     }
 
     updateActiveSection()
-    window.addEventListener("hashchange", updateActiveSection)
+    window.addEventListener("popstate", updateActiveSection)
 
     return () => {
-      window.removeEventListener("hashchange", updateActiveSection)
+      window.removeEventListener("popstate", updateActiveSection)
     }
   }, [])
 

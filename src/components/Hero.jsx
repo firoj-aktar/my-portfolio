@@ -59,11 +59,28 @@ function Hero({ profile, stats }) {
         </div>
         <p className="hero-summary">{profile.summary}</p>
         <div className="hero-actions">
-          <a href="#contact">Contact Me</a>
+          <a
+            href="/contact"
+            onClick={(e) => {
+              e.preventDefault()
+              window.history.pushState({}, "", "/contact")
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }}
+          >
+            Contact Me
+          </a>
           <a href={profile.resume} download>
             Download Resume
           </a>
-          <a className="secondary" href="#projects">
+          <a
+            className="secondary"
+            href="/projects"
+            onClick={(e) => {
+              e.preventDefault()
+              window.history.pushState({}, "", "/projects")
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+            }}
+          >
             View Work
           </a>
         </div>

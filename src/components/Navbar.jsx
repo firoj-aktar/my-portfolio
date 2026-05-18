@@ -1,7 +1,15 @@
 function Navbar({ darkMode, menuOpen, navItems, activeSection, onMenuToggle, onThemeToggle, onNavigate }) {
+  const handleClick = (e, item) => {
+    e.preventDefault()
+    onNavigate()
+    const path = item === "home" ? "/" : `/${item}`
+    window.history.pushState({}, "", path)
+    document.getElementById(item)?.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
     <nav className="site-nav">
-      <a className="brand" href="#home" onClick={onNavigate}>
+      <a className="brand" href="/" onClick={(e) => handleClick(e, "home")}>
         <img src="/portfolio/Logo_FA.png" alt="" />
         <span>Firoj's Portfolio</span>
       </a>
@@ -36,9 +44,9 @@ function Navbar({ darkMode, menuOpen, navItems, activeSection, onMenuToggle, onT
         {navItems.map((item) => (
           <a
             key={item}
-            href={`#${item}`}
+            href={`/${item}`}
             className={item === activeSection ? "active" : ""}
-            onClick={onNavigate}
+            onClick={(e) => handleClick(e, item)}
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
           </a>

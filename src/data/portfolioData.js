@@ -4,7 +4,7 @@ export const profile = {
   roles: ["Sr. Software Engineer", "Angular Developer", "Frontend Engineer"],
   location: "Kolkata, India",
   email: "firojaktar6296@gmail.com",
-  phone: "+91 6296617079",
+  phone: "+91 62966170🔢",
   summary:
     "Frontend Engineer with 3+ years of experience building scalable web applications using Angular, TypeScript, and modern UI technologies. Skilled in reusable component design, responsive interfaces, API integration, and performance-focused frontend development.",
   resume: "/portfolio/Angular_Frontend_Developer_Firoj.pdf",
