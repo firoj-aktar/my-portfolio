@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import SocialMedia from "./SocialMedia.jsx"
 
-function Hero({ profile, stats }) {
+function Hero({ profile, stats, onNavigate }) {
   const [imageIndex, setImageIndex] = useState(0)
   const [styleIndex, setStyleIndex] = useState(0)
   const activeImage = profile.heroImages[imageIndex]
@@ -63,22 +63,20 @@ function Hero({ profile, stats }) {
             href="/contact"
             onClick={(e) => {
               e.preventDefault()
-              window.history.pushState({}, "", "/contact")
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              onNavigate("contact")
             }}
           >
             Contact Me
           </a>
-          <a href={profile.resume} download>
-            Download Resume
+          <a href={profile.resume} target="_blank" rel="noreferrer noopener">
+            View Resume
           </a>
           <a
             className="secondary"
             href="/projects"
             onClick={(e) => {
               e.preventDefault()
-              window.history.pushState({}, "", "/projects")
-              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+              onNavigate("projects")
             }}
           >
             View Work

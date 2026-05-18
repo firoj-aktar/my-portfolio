@@ -1,10 +1,7 @@
 function Navbar({ darkMode, menuOpen, navItems, activeSection, onMenuToggle, onThemeToggle, onNavigate }) {
   const handleClick = (e, item) => {
     e.preventDefault()
-    onNavigate()
-    const path = item === "home" ? "/" : `/${item}`
-    window.history.pushState({}, "", path)
-    document.getElementById(item)?.scrollIntoView({ behavior: "smooth" })
+    onNavigate(item)
   }
 
   return (
@@ -44,7 +41,7 @@ function Navbar({ darkMode, menuOpen, navItems, activeSection, onMenuToggle, onT
         {navItems.map((item) => (
           <a
             key={item}
-            href={`/${item}`}
+            href={item === "home" ? "/" : `/${item}`}
             className={item === activeSection ? "active" : ""}
             onClick={(e) => handleClick(e, item)}
           >

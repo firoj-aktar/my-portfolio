@@ -4,10 +4,10 @@ export const profile = {
   roles: ["Sr. Software Engineer", "Angular Developer", "Frontend Engineer"],
   location: "Kolkata, India",
   email: "firojaktar6296@gmail.com",
-  phone: "+91 62966170🔢",
+  phone: "+91 62966170**",
   summary:
-    "Frontend Engineer with 3+ years of experience building scalable web applications using Angular, TypeScript, and modern UI technologies. Skilled in reusable component design, responsive interfaces, API integration, and performance-focused frontend development.",
-  resume: "/portfolio/Angular_Frontend_Developer_Firoj.pdf",
+    "Frontend Engineer with 3.5+ years of experience building scalable web applications using Angular, TypeScript, and modern UI technologies. Skilled in reusable component design, responsive interfaces, API integration, and performance-focused frontend development.",
+  resume: "https://drive.google.com/file/d/1InbqTpXepaTgOi4RFRsWOKGUye8yA9zV/view?usp=sharing",
 
   heroImages: [
     "/portfolio/img2.jpg",
@@ -45,9 +45,9 @@ export const navItems = [
 ];
 
 export const stats = [
-  { value: "3+ Years", label: "Experience" },
+  { value: "3.5+ Years", label: "Experience" },
   { value: "Sr. Software Engineer", label: "Current Role" },
-  { value: "5+", label: "Projects Delivered" },
+  { value: "6+", label: "Projects Delivered" },
   { value: "100%", label: "Responsive UI Focus" },
 ];
 
