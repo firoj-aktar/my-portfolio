@@ -5,6 +5,7 @@ export const profile = {
   location: "Kolkata, India",
   email: "firojaktar6296@gmail.com",
   phone: "+91 62966170**",
+  dob: "**/02/2001",
   summary:
     "Frontend Engineer with 3.5+ years of experience building scalable web applications using Angular, TypeScript, and modern UI technologies. Skilled in reusable component design, responsive interfaces, API integration, and performance-focused frontend development.",
   resume: "https://drive.google.com/file/d/1InbqTpXepaTgOi4RFRsWOKGUye8yA9zV/view?usp=sharing",

@@ -30,6 +30,10 @@ function About({ profile, resumeHighlights }) {
             <dd>{profile.phone}</dd>
           </div>
           <div>
+            <dt>Date of Birth</dt>
+            <dd>{profile.dob}</dd>
+          </div>
+          <div>
             <dt>Address</dt>
             <dd>Kolkata, West Bengal</dd>
           </div>

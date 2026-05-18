@@ -1,10 +1,13 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import emailjs from "@emailjs/browser"
 import SocialMedia from "./SocialMedia.jsx"
 
 function Contact({ profile }) {
   const formRef = useRef(null)
+  const timeoutRef = useRef(null)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
   const [message, setMessage] = useState("")
   const [status, setStatus] = useState("")
   const [sending, setSending] = useState(false)
@@ -17,36 +20,28 @@ function Contact({ profile }) {
     setStatus("")
 
     try {
-      const formData = new FormData()
-      formData.append("name", name)
-      formData.append("email", email)
-      formData.append("message", message)
-      formData.append("_subject", `Portfolio contact from ${name || "visitor"}`)
-      formData.append("_captcha", "false")
-
-      const response = await fetch(
-        `https://formsubmit.co/ajax/${encodeURIComponent(profile.email)}`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-          },
-          body: formData,
-        },
+      const result = await emailjs.sendForm(
+        "service_sk3ytgt",
+        "template_h9rs46c",
+        formRef.current,
+        "s_7xukBLWKYqSY9QS"
       )
 
-      const result = await response.json()
-      if (!response.ok || (result.success !== true && result.success !== "true")) {
-        throw new Error(result.message || "Email send failed")
+      if (result.status !== 200) {
+        throw new Error("Email send failed")
       }
 
       setStatus("Message sent successfully!")
+      timeoutRef.current = window.setTimeout(() => {
+        setStatus("")
+      }, 3000)
       setName("")
       setEmail("")
+      setPhone("")
       setMessage("")
       if (formRef.current) formRef.current.reset()
     } catch (error) {
-      console.error("FormSubmit error", error)
+      console.error("EmailJS error", error)
       setStatus(
         "Something went wrong while sending. Please try again or contact me directly via email."
       )
@@ -54,6 +49,14 @@ function Contact({ profile }) {
       setSending(false)
     }
   }
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
 
   return (
     <section id="contact" className="section contact-section">
@@ -78,6 +81,14 @@ function Contact({ profile }) {
             autoComplete="email"
             required
             onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="tel"
+            name="user_phone"
+            value={phone}
+            placeholder="Mobile number (optional)"
+            autoComplete="tel"
+            onChange={(e) => setPhone(e.target.value)}
           />
           <textarea
             name="message"
